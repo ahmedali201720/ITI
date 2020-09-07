@@ -1,0 +1,197 @@
+
+*****************************(1)*******************************************
+#!/bin/bash
+echo -n "May I know your user name please ? "
+read yourname
+echo "Good Day $yourname"
+
+
+
+**************** (2) *****************************************
+ solution 1 : 
+ 
+ s1  : 
+ #!/bin/bash
+  X=5
+ *******
+ s2 :
+  #!/bin/bash
+   . ./s1
+   echo $X
+##################
+ solution 2 : 
+ 
+ s1  :
+  
+ #!/bin/bash
+  X=5
+  export X
+  ./s2.sh
+ ***********
+ s2 :
+
+  #!/bin/bash
+   echo $X
+
+***************************************************************************************************************************
+
+
+
+
+**************** (3) ************************
+#!/bin/bash
+countflag=1
+while :
+do
+   echo -n "Please Enter file name or done if u finished entering:"
+   read myinput
+   if [ "$myinput" = "done" ]
+   then
+      break
+   fi
+   myarray[$countflag]=$myinput
+   countflag=$countflag+1
+done
+echo -n "Please enter the directory that you want to copy files in : "
+read newdir
+for file in "${myarray[@]}"
+do
+  cp $file $newdir
+done
+echo "files have been copied successfully."
+     
+**************************************************************************************
+
+
+
+
+**************** 4 ************************
+  #!/bin/bash
+   if [ $# -eq 0 ]
+   then
+     cd $HOME
+     echo current directory is $HOME
+   else
+     dir = $1
+     cd $dir
+     echo current dir is $x
+   fi
+***************************************************************************************************************************
+
+
+
+
+
+**************** 5 ************************
+ #!/bin/bash
+   if [ $# -eq 0 ]
+   then
+     ls
+   else
+     dir = $1
+     ls $dir
+   fi
+
+
+
+**********************************************(6)************************************************
+!/bin/bash
+   if [ $# -eq 0 ]
+   then
+     ls
+   elif [ $# -eq 1 ]
+   then
+     dir=$1
+     ls $dir
+   elif [ $# -eq 2 ]
+   then
+     option=$1
+     dir2=$2
+     cd $dir2
+     if [ "$option" = "-l" ]
+     then
+        ls -l
+     elif [ "$option" = "-a" ]
+     then
+        ls -a
+     elif ["$option" = "-d"]
+     then
+        ls -d
+     elif ["$option" = "-i"]
+     then
+        ls -i
+     elif ["$option" = "-R"]
+     then
+        ls -R
+     fi
+   else
+     echo invalid argument format
+   fi
+
+
+
+
+**************************************************************************************************************************
+
+
+Bonus : 
+
+
+**************************************************************************************************************************
+
+7 )
+
+
+#!/bin/bash
+input=$1 
+if [ $# -eq 1 ]
+then
+   if [[ -d $input ]]
+   then
+       echo "Is a directory and permission is :"
+       ls -ld $input | cut -b 1-10
+   elif [[ -f $input ]]
+   then
+       echo "Is a file and permission is : "
+       ls -l $input | cut -b 1-10
+   else
+       echo " is not valid input"
+   fi
+else
+   echo script takes only one arguments
+fi
+
+
+
+
+
+***********************************************************************************************************************
+
+8 )
+
+
+#!/bin/bash
+echo Enter logname please : 
+read input
+dir=$(eval echo ~$input)
+echo Contents of directory are : 
+ls -l $dir 
+cp -a $dir /tmp/
+echo Data copied successfully to /tmp/ directory and current processes are :
+ps -u $input
+
+
+
+
+********************************************************************************************** 
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Title</th>
+    <th scope="col">Completed</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of list;">
+    <td>{{user['id']}}</td>
+    <td>{{user['title']}}</td>
+    <td>{{user['completed']}}</td>
+  </tr>
+  </tbody>
+</table>

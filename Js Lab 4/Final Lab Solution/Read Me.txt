@@ -1,0 +1,6 @@
+1 - Validates input data in required formats .
+2 - Add new contacts using contact object . 
+3 - delete object using id .
+4 - update object using id and new object .
+5 - written method to get a specific contact named [getContact(id)].
+6 - written method to get all contacts named [getAllContacts] .

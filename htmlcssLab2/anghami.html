@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<title> Anghami </title>
+</head>
+<body>
+      <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">New Songs</a>
+        <a href="#contact">Favorites</a>
+        <a href="#about">About Us</a>
+      </div>
+      
+      <h1>Mp3 Song Player</h1>
+
+      <div id="current-song-div">
+         <audio controls id="audio1">
+             <source src="canon.mp3" type="audio/mpeg"></source>
+         </audio>
+      </div>
+
+      <div class="btn-toolbar">
+          <button id="shuffle">Shuffle</button>
+          <button id="repeat">Repeat</button>
+          <button id="play">Play</button>
+      </div>
+
+      <div class="songs-container">
+          <div class="canon-container">
+             <a id="s1" href="canon.mp3" onclick="return myFunc();">Canon.mp3</a>
+          </div>
+          <div class="dream-container">
+             <a id="s2" href="dream.mp3">Dream.mp3</a>
+          </div>
+          <div class="hero-container">
+             <a id="s3" href="hero.mp3">Hero.mp3</a>
+          </div>
+          <div class="mombasa-container">
+             <a id="s4" href="mombasa.mp3">Mombasa.mp3</a>
+          </div>
+          <div class="swan-container">
+             <a id="s5" href="swan-lake.mp3">Swan Lake.mp3</a>
+          </div>
+      </div>
+    <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+		<script src="code.js"></script>
+</body>
+</html>

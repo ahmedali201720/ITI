@@ -1,0 +1,217 @@
+****************************************************************************************************
+*******************************      ( 1 )    ******************************************************
+****************************************************************************************************
+echo Please enter a character to test : 
+read char
+case $char in
+     ([[:upper:]])
+       echo Uppercase letter.
+      ;;
+     ([[:lower:]])
+       echo Lowercase letter.
+      ;;
+     ([[:digit:]])
+      echo Number
+      ;;
+      *)
+       echo Unknown Input.
+      ;;
+esac
+****************************************************************************************************
+*******************************      ( 2 )    ******************************************************
+****************************************************************************************************
+#!/bin/bash/
+
+upperflag=0
+lowerflag=0
+numflag=0
+echo Please enter a string to test : 
+read string
+strlen=${#string}
+for(( i = 0 ; i <= $strlen ; i++ ))
+do
+  char=$(echo ${string:$i:1})
+  echo $char  
+case $char in
+     ([[:upper:]])
+       upperflag=1
+      ;;
+     ([[:lower:]])
+       lowerflag=1
+      ;;
+     ([[:digit:]])
+       numflag=1
+      ;;
+      *)
+      ;;
+  esac
+done
+if [ $upperflag -eq 1 ] && [ $lowerflag -eq 1 ] && [ $numflag -eq 1 ]
+then
+   echo Mix of all types
+elif [ $upperflag -eq 1 ] && [ $lowerflag -eq 0 ] && [ $numflag -eq 0 ]
+then 
+   echo Uppercase only.
+elif [ $upperflag -eq 1 ] && [ $lowerflag -eq 1 ] && [ $numflag -eq 0 ]
+then 
+   echo Mix upper and lower cases.
+elif [ $upperflag -eq 1 ] && [ $lowerflag -eq 0 ] && [ $numflag -eq 1 ]
+then 
+   echo Mix Uppercase and numbers.
+elif [ $upperflag -eq 0 ] && [ $lowerflag -eq 1 ] && [ $numflag -eq 0 ]
+then 
+   echo Lowercase only.
+elif [ $upperflag -eq 0 ] && [ $lowerflag -eq 1 ] && [ $numflag -eq 1 ]
+then 
+   echo Mix lowercase and numbers.
+elif [ $upperflag -eq 0 ] && [ $lowerflag -eq 0 ] && [ $numflag -eq 1 ]
+then 
+   echo Numbers only.
+else 
+    echo you have entered unknown input.
+fi
+****************************************************************************************************
+*******************************      ( 3 )    ******************************************************
+****************************************************************************************************
+#!/bin/bash/
+
+for file in "$HOME"/*
+do
+  echo $file
+  echo "Processing file : $file ...."
+  chmod u+x $file
+  echo $file : Execution permission applied successfully.
+done
+for dir in "$HOME"*/
+do
+  echo $dir
+  echo "Processing directory : $dir ...."
+  chmod u+x $dir
+  echo $dir : Execution permission applied successfully.
+done
+****************************************************************************************************
+*******************************      ( 4 )    ******************************************************
+****************************************************************************************************
+#!/bin/bash/
+
+for file in "$HOME"/*
+do
+  echo "Processing file : $file ...."
+  cp -n $file{,.bak}
+  echo $file : $file backup achieved successfully.
+done
+****************************************************************************************************
+*******************************      ( 5 )    ******************************************************
+****************************************************************************************************
+solution 1 :
+*****************************************
+#!/bin/bash
+
+for user in $(cut -d: -f1 /etc/passwd)
+do
+  echo "Hello $user , You are welcomed" | mail -s "Welcoming Message" $user
+  echo "User $user mailed successfully."
+done
+*********************************************************
+this solution send by email
+*****************************************
+#!/bin/bash
+
+touch mailcontent
+echo "hello" | tee mailcontent
+counter=1
+for user in $(cut -d: -f1 /etc/passwd)
+do
+  echo Enter email for user : $user
+  read mail
+  myarray[$counter]=$mail
+  counter=$counter+1
+done
+for mails in "${myarray[@]}"
+do
+  cat mailcontent | mail -s "Welcome:" mails 
+done
+echo Data sent successfully to all users
+****************************************************************************************************
+*******************************      ( 6 )    ******************************************************
+****************************************************************************************************
+Run once and it will run forever
+./shell6.sh
+
+#!/bin/bash
+
+while :
+do
+  mail
+  sleep 10
+done
+****************************************************************************************************
+*******************************      ( 9 )    ******************************************************
+****************************************************************************************************
+#!/bin/bash
+
+myarray=()
+echo Enter Number of elements of the array : 
+read number
+for((i=1;i<=$number;i++))
+do
+  echo Enter element number $i
+  read element
+  myarray[$i]=$element
+done
+echo Array Elements are :
+printf "%s\n" "${myarray[@]}" 
+****************************************************************************************************
+*******************************      ( 10 )    *****************************************************
+****************************************************************************************************
+#!/bin/bash
+
+countflag=0
+sum=0
+average=0
+while :
+do
+   echo -n "Please Enter an integer number or done if u finished entering:"
+   read myinput
+   if [ "$myinput" = "done" ]
+   then
+      break
+   fi
+   #myarray[$countflag]=$myinput
+   ((countflag=$countflag+1))
+   ((sum=`expr $sum+$myinput`))
+done
+echo Average of Numbers is :
+((average=`expr $sum/$countflag`))
+****************************************************************************************************
+*******************************      ( 11 )    *****************************************************
+****************************************************************************************************
+MySquare()
+{
+    arg=$1
+    answer=`expr $arg \* $arg`
+    echo Square of $arg is $answer.
+}
+****************************************************************************************************
+*******************************      ( 12 )    *****************************************************
+****************************************************************************************************
+#!/bin/bash
+
+countflag=1
+while :
+do
+   echo -n "Please Enter file number or done if u finished entering:"
+   read myinput
+   if [ "$myinput" = "done" ]
+   then
+      break
+   fi
+   myarray[$countflag]=$myinput
+   countflag=$countflag+1
+done
+echo Square of Arguments is :
+for num in "${myarray[@]}"
+do
+  answer=`expr $num \* $num`
+  echo $answer
+done

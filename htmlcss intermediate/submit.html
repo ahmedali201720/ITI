@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<title> Registration Form </title>
+</head>
+<body>
+      <div class="btn-toolbar">
+          <button id="rect">Rectangle</button>
+          <button id="circle">Circle</button>
+          <button id="line">Line</button>
+      </div>
+      <div id="artboard">
+          <svg id="l" height="200" width="150">
+          <line x1="30" y1="100" x2="230" y2="200" style="stroke:rgb(255,0,0);stroke-width:3" />
+          </svg>
+          <svg id="r" height="200" width="150">
+          <rect width="140" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
+          </svg>
+          <svg id="c" height="250" width="135">
+          <circle cx="80" cy="80" r="50" stroke="black" stroke-width="3" fill="red" />
+          </svg>
+      </div>
+    <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+		<script src="code.js"></script>
+</body>
+</html>

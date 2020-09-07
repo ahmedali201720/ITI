@@ -1,0 +1,83 @@
+******(1)************
+script to add user
+*********************
+i used (data.txt) file : 
+
+ahmedali,ahmedali@gmail.com,01010668909
+aly,alybadr@gmail.com,01117698650
+amr,amr@gmail.com,010611053334
+samy,samy2020@gmail.com
+
+*************************************************************************
+solution :
+
+
+#!/bin/bash
+
+echo please enter file path to read :
+read path
+while IFS= read -r line
+do
+  if [ ! -z "$line" ]
+  then
+     name=$(echo "$line" | cut -d ',' -f1)
+     result=$(cut -d ':' -f1 /etc/passwd | grep "\<$name\>")
+     if [ -z "$result" ]
+     then
+	password=$(openssl rand -base64 14)
+        useradd -m -p $password $name
+     fi
+  else
+     echo Empty line neglected.
+  fi
+done < "$path"
+
+
+
+****************************************************************************************************************
+in above solution , it adds users successfully if not exists but i receive some warnings while adding users:
+****************************************************************************************************************
+
+useradd: warning: the home directory already exists.
+Not copying any file from skel directory into it.
+Creating mailbox file: File exists
+
+*****************************************************************************************************************
+
+
+
+
+
+******(2)************
+Grades Script
+*********************
+#!/bin/bash
+
+echo Enter student name : 
+read student
+echo Enter student grade :
+read grade
+if [[ $grade =~ ^[+-]?[0-9]+$ ]]
+then
+   if ([ $grade -gt 85 ] || [ $grade -eq 85 ]) && [ $grade -lt 100 ]
+   then
+      echo Student $student grade is : Excellent
+   elif [ $grade -gt 75 -o $grade = 75 ] && [ $grade -lt 85 ]
+   then
+      echo Student $student grade is : very good
+   elif [ $grade -gt 60 -o $grade -eq 60 ] && [ $grade -lt 75 ]
+   then
+      echo Student $student grade is : good
+   elif [ $grade -gt 50 -o $grade -eq 50 ] && [ $grade -lt 60 ]
+   then
+      echo Student $student grade is : succeeded
+   elif [ $grade -lt 50 ]
+   then
+      echo Student $student grade is : failed
+   else 
+      echo invalid input grade , please retry again.
+   fi
+else
+   echo Input grade is not an iteger.
+fi
+****************************************************************************************************

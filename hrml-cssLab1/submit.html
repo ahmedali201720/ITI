@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<title> Registration Form </title>
+</head>
+<body>
+      <div class="container">
+         <form>
+            <label for="name">Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Your email name..">
+            <label for="password">Password</label>
+            <input type="password" id="pass" name="passwd" placeholder="Your password..">
+            <label for="salary" class="salary">Salary</label>
+            <input type="range" id="myRange" min="1000" max="15000" value="7500" step="250" class="slider" onchange="myFunction()">
+            <label for="lname" id="sal">num</label>
+            <label for="lname" class="sal">&#36</label>
+            <label for="lname" class="age">Age</label>
+            <input type="text" id="age" name="age" placeholder="Your age..">
+            <input type="submit" id="submit" value="Submit">
+         </form>
+      </div>
+    <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+		<script src="code.js"></script>
+</body>
+</html>
